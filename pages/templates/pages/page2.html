@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Santa</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pages/styles_santa.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Secret Santa game</h1>
+
+        <h2>Add participants</h2>
+        <form method="post" action="{% url 'page2' %}">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Participant's name">
+            <button type="submit" name="add_participant">Add</button>
+        </form>
+
+        <h2>List of participants</h2>
+        <ul>
+            {% for participant in participants %}
+                <li>{{ participant }}</li>
+            {% empty %}
+                <li>There are no participants.</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Pair generation</h2>
+        <form method="post" action="{% url 'page2' %}">
+            {% csrf_token %}
+            <button type="submit" name="generate_pairs">Generate pairs</button>
+        </form>
+
+        {% if pairs %}
+            <h2>Generated pairs</h2>
+            <ul>
+                {% for giver, receiver in pairs %}
+                    <li>{{ giver }} → {{ receiver }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if error_message %}
+            <p class="error-message">{{ error_message }}</p>
+        {% endif %}
+
+        <form method="post" action="{% url 'page2' %}">
+            {% csrf_token %}
+            <button type="submit" name="reset_game">Start over</button>
+        </form>
+
+        <a href="{% url 'page1' %}" class="return_button">Return to the main page</a>
+    </div>
+</body>
+</html>

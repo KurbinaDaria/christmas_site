@@ -109,12 +109,12 @@ form button[name="reset_game"]:hover {
 }
 
 .error-message {
-    color: #ff4d4d; /* Red color for error messages */
-    font-size: 12px; /* Smaller font size */
-    margin-top: 10px; /* Space above the message */
-    margin-bottom: 10px; /* Space below the message */
-    padding: 5px; /* Padding around the message */
-    border: 1px solid #ff4d4d; /* Red border around the message */
-    border-radius: 3px; /* Rounded corners for the border */
-    background-color: #ffe6e6; /* Light red background for visibility */
+    color: #ff4d4d;
+    font-size: 12px;
+    margin-top: 10px; 
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ff4d4d; 
+    border-radius: 3px; 
+    background-color: #ffe6e6;
 }

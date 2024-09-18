@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pages/styles.css' %}">
+</head>
+<body>
+    <h1>Welcome to main page</h1>
+    <h2>Is it Christmas today?</h2>
+    <p>{{ is_christmas }}</p>
+    <a href="{% url 'page2' %}">Go to Secret Santa page</a>
+</body>
+</html>
